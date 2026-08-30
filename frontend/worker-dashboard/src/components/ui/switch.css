@@ -1,0 +1,70 @@
+.gsw {
+  --gsw-w: 42px;
+  --gsw-h: 24px;
+  --gsw-pad: 2px;
+  --gsw-thumb: 20px;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  width: var(--gsw-w);
+  height: var(--gsw-h);
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: background 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gsw:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.gsw.is-on {
+  background: var(--accent, #00c48c);
+}
+
+.gsw.is-on:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent, #00c48c) 86%, white);
+}
+
+.gsw:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg, #0a0a0a), 0 0 0 4px color-mix(in srgb, var(--accent, #00c48c) 45%, transparent);
+}
+
+.gsw:active:not(:disabled) .gsw__thumb {
+  width: 22px;
+}
+
+.gsw.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.gsw__thumb {
+  display: block;
+  width: var(--gsw-thumb);
+  height: var(--gsw-thumb);
+  margin-left: var(--gsw-pad);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28), 0 4px 8px rgba(0, 0, 0, 0.12);
+  transform: translateX(0);
+  transition:
+    transform 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    width 120ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gsw.is-on .gsw__thumb {
+  transform: translateX(calc(var(--gsw-w) - var(--gsw-thumb) - var(--gsw-pad) * 2));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gsw,
+  .gsw__thumb {
+    transition: none;
+  }
+}

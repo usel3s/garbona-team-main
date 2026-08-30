@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garbona — Rules</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/extras.css" />
+    <link rel="icon" href="assets/logo.png?v=gb3" type="image/png" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png?v=gb3" alt="Garbona" />
+          <span>Garbona</span>
+        </a>
+        <nav class="nav">
+          <a href="inventory.html">Inventory</a>
+          <a href="index.html">Upgrades</a>
+          <a href="rewards.html">Rewards</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn btn-steam" id="loginBtn" type="button">
+            <img src="assets/steam.svg" alt="" />
+            Sign in via Steam
+          </button>
+          <div class="user-chip" id="userChip">
+            <img id="userAvatar" src="assets/logo.png?v=gb3" alt="" />
+            <span id="userNick">Player</span>
+            <button id="logoutBtn" type="button">Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="legal-page">
+        <article class="glass">
+          <h1>Site &amp; Giveaway Rules</h1>
+          <p class="legal-meta">User agreement supplement · July 31, 2026</p>
+
+          <h2>General</h2>
+          <ul>
+            <li>You must be 18+ and accept the Terms of Service before signing in.</li>
+            <li>One Steam account per person. Multi-accounting may lead to a ban.</li>
+            <li>Fair play only — no bots, scripts, or exploit abuse.</li>
+          </ul>
+
+          <h2>Upgrades</h2>
+          <ul>
+            <li>Select a stake item and a target item. Chance is shown before you confirm.</li>
+            <li>On success you receive the target; on fail the stake is lost.</li>
+            <li>Chance calculation is approximate and may be adjusted for balance.</li>
+          </ul>
+
+          <h2>Giveaways</h2>
+          <ul>
+            <li>Join requires sign-in and meeting the deposit threshold for that giveaway.</li>
+            <li>One qualifying entry per eligible deposit window unless stated otherwise.</li>
+            <li>Winners are selected at random among eligible participants when the timer ends.</li>
+            <li>We may void entries obtained through fraud or policy violations.</li>
+          </ul>
+
+          <h2>Bonuses &amp; Weekly Drop</h2>
+          <ul>
+            <li>Welcome and weekly rewards unlock after activity and deposit requirements.</li>
+            <li>Weekly drop refreshes every Wednesday at 03:00 MSK.</li>
+            <li>Rewards cannot be transferred outside the rules published on the Rewards page.</li>
+          </ul>
+
+          <h2>Support</h2>
+          <p>
+            Disputes and reports: <a href="mailto:support@garbona.local">support@garbona.local</a>.
+            Also see <a href="terms.html">Terms of Service</a> and
+            <a href="privacy.html">Privacy Policy</a>.
+          </p>
+        </article>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="index.html">
+              <img src="assets/logo.png?v=gb3" alt="" width="28" height="28" />
+              <span>Garbona</span>
+            </a>
+            <p>Not affiliated with Valve Corp.</p>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="rules.html">Rules</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+      GarbonaUI.initChrome();
+    </script>
+  </body>
+</html>

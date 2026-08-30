@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "shadcn": {
+      "command": "npx",
+      "args": [
+        "shadcn@latest",
+        "mcp"
+      ]
+    },
+    "vercel": {
+      "url": "https://mcp.vercel.com"
+    },
+    "21st": {
+      "url": "https://21st.dev/api/mcp",
+      "headers": {
+        "x-api-key": "21st_sk_9e474ee839f437348b3fb96ece5166fbd77f6c17caeb6c18408aeaa0807512ca"
+      }
+    }
+  }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>Страница не найдена — Garbona</title>
+    <style>
+      :root,
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #0a0a0a;
+        --surface-2: #161616;
+        --surface-3: #1c1c1c;
+        --line: rgba(255, 255, 255, 0.09);
+        --text: #ededed;
+        --muted: #888888;
+        --faint: #5a5a5a;
+        --radius: 8px;
+        --font: Inter, Geist, system-ui, -apple-system, sans-serif;
+        --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      [data-theme="light"] {
+        color-scheme: light;
+        --bg: #fafafa;
+        --surface-2: #ffffff;
+        --surface-3: #f4f4f4;
+        --line: rgba(0, 0, 0, 0.08);
+        --text: #111111;
+        --muted: #666666;
+        --faint: #999999;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: var(--font);
+        color: var(--text);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+
+      .nf {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 40px 24px;
+        text-align: center;
+      }
+
+      .nf__brand {
+        margin: 0 0 8px;
+        color: var(--faint);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .nf__code {
+        margin: 0;
+        color: color-mix(in srgb, var(--text) 12%, transparent);
+        font-size: clamp(72px, 14vw, 128px);
+        font-weight: 700;
+        letter-spacing: -0.08em;
+        line-height: 0.85;
+      }
+
+      .nf__title {
+        margin: 18px 0 0;
+        color: var(--text);
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+      }
+
+      .nf__text {
+        max-width: 36rem;
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .nf__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 24px;
+      }
+
+      .nf-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 108px;
+        height: 34px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          border-color 160ms var(--ease-out),
+          background 160ms var(--ease-out),
+          color 160ms var(--ease-out),
+          transform 160ms var(--ease-out),
+          opacity 160ms var(--ease-out);
+      }
+
+      .nf-btn:active {
+        transform: scale(0.97);
+      }
+
+      .nf-btn--ghost {
+        background: var(--surface-2);
+        color: var(--muted);
+      }
+
+      .nf-btn--primary {
+        border-color: var(--text);
+        background: var(--text);
+        color: var(--bg);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .nf-btn--ghost:hover {
+          border-color: var(--faint);
+          background: var(--surface-3);
+          color: var(--text);
+        }
+
+        .nf-btn--primary:hover {
+          opacity: 0.92;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nf-btn {
+          transition: none;
+        }
+
+        .nf-btn:active {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="nf">
+      <p class="nf__brand">Garbona</p>
+      <p class="nf__code" aria-hidden="true">404</p>
+      <h1 class="nf__title" data-i18n="notFound.title">Страница не найдена</h1>
+      <p class="nf__text" data-i18n="notFound.text">
+        Возможно, ссылка устарела или была введена с опечаткой. Вернитесь на главную и попробуйте ещё раз.
+      </p>
+      <div class="nf__actions">
+        <a class="nf-btn nf-btn--ghost" id="notFoundBack" href="/" data-i18n="common.back">Назад</a>
+        <a class="nf-btn nf-btn--primary" href="/" data-i18n="notFound.home">На главную</a>
+      </div>
+    </main>
+    <script src="/shared/not-found.js"></script>
+  </body>
+</html>

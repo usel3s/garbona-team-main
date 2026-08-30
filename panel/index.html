@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#090909" />
+    <title>Обзор — Garbona Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/shared/sidebar.css" />
+    <link rel="stylesheet" href="css/panel.css" />
+    <link rel="stylesheet" href="css/admin-redesign.css?v=members-pagination1" />
+    <link rel="icon" href="/assets/logo-mark.png?v=gb4" type="image/png" />
+  </head>
+  <body>
+    <div class="toast-host" id="toastHost" aria-live="polite" aria-atomic="true"></div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="drawerTitle">
+      <div class="drawer-head">
+        <div>
+          <div class="drawer-kicker">Карточка участника</div>
+          <h2 class="drawer-title" id="drawerTitle">Участник</h2>
+        </div>
+        <button type="button" class="icon-btn" id="drawerClose" aria-label="Закрыть карточку">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="m7.5 7.5 9 9m0-9-9 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="drawer-body" id="drawerBody"></div>
+    </aside>
+
+    <div class="app">
+      <aside class="sidebar" id="sidebar" aria-label="Навигация администратора">
+        <div class="sidebar-header">
+          <div id="workspaceSwitcher"></div>
+        </div>
+
+        <div class="sidebar-content">
+          <nav class="nav" id="nav" aria-label="Разделы панели"></nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-profile">
+            <div class="avatar-wrap">
+              <img class="avatar" id="userAvatar" alt="" />
+              <span class="status-dot" aria-hidden="true"></span>
+            </div>
+            <div class="user-info">
+              <div class="user-name" id="userName">—</div>
+              <div class="user-role" id="userRole">Администратор</div>
+            </div>
+          </div>
+          <button type="button" class="logout-btn" id="logoutBtn" aria-label="Выйти" data-tip="Выйти">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M10 4.5H6.5A1.5 1.5 0 0 0 5 6v12a1.5 1.5 0 0 0 1.5 1.5H10M14 8.5l4.5 3.5-4.5 3.5M18.2 12H9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <button type="button" class="sidebar-collapse" id="sidebarCollapse" aria-pressed="false" aria-label="Свернуть меню">
+          <svg class="sidebar-collapse-collapse" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14.5 7 10 12l4.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="sidebar-collapse-expand" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10 7l4.5 5L10 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button type="button" class="sidebar-rail" id="sidebarRail" tabindex="-1" aria-label="Свернуть меню"></button>
+      </aside>
+
+      <div class="shell">
+        <header class="topnav">
+          <div class="topnav-title" id="pageTitle">Обзор</div>
+          <div class="topnav-spacer"></div>
+        </header>
+        <main class="main" id="main"></main>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav" aria-label="Основное меню"></nav>
+
+      <div class="mobile-more" id="mobileMore" aria-hidden="true">
+        <button type="button" class="mobile-more-backdrop" id="mobileMoreBackdrop" aria-label="Закрыть меню"></button>
+        <section class="mobile-more-sheet" id="mobileMoreSheet" role="dialog" aria-modal="true" aria-labelledby="mobileMoreTitle" tabindex="-1">
+          <div class="mobile-more-handle" aria-hidden="true"></div>
+          <div class="mobile-more-head">
+            <div>
+              <span class="mobile-more-eyebrow">Администрирование</span>
+              <h2 id="mobileMoreTitle">Другие разделы</h2>
+            </div>
+            <button type="button" class="mobile-more-close" id="mobileMoreClose" aria-label="Закрыть меню">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m7.5 7.5 9 9m0-9-9 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mobile-more-body" id="mobileMoreBody"></div>
+          <div class="mobile-more-account">
+            <div class="mobile-more-user">
+              <img class="mobile-more-avatar" id="mobileUserAvatar" alt="" />
+              <div>
+                <div class="mobile-more-name" id="mobileUserName">—</div>
+                <div class="mobile-more-role" id="mobileUserRole">Администратор</div>
+              </div>
+            </div>
+            <button type="button" class="mobile-more-logout" id="mobileMoreLogoutBtn">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M10 4.5H6.5A1.5 1.5 0 0 0 5 6v12a1.5 1.5 0 0 0 1.5 1.5H10M14 8.5l4.5 3.5-4.5 3.5M18.2 12H9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Выйти</span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="/shared/sidebar.js"></script>
+    <script src="js/nav.js?v=logs2"></script>
+    <script src="js/api.js?v=templates1"></script>
+    <script src="js/auth.js?v=payout-panel1"></script>
+    <script src="js/charts.js?v=arrivals1"></script>
+    <script src="js/confirm.js?v=admin-confirm2"></script>
+    <script src="js/dropdown.js?v=autosales1"></script>
+    <script src="js/member.js?v=team-console6"></script>
+    <script src="js/app.js?v=members-pagination1"></script>
+  </body>
+</html>

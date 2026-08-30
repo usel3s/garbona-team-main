@@ -1,0 +1,18 @@
+.gwl-host {
+  width: 100%;
+  min-height: 40vh;
+}
+
+.gwl-host > .main {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 0 32px;
+}
+
+.gwl-host__error {
+  margin: 0 0 12px;
+  color: #ff5c5c;
+  font-size: 13px;
+}

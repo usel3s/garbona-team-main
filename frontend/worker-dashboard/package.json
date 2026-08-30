@@ -1,0 +1,5 @@
+{
+  "name": "@garbona/worker-dashboard",
+  "private": true,
+  "type": "module"
+}

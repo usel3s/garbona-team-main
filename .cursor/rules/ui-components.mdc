@@ -1,0 +1,16 @@
+# UI Components
+
+When implementing or modifying UI:
+
+1. Use the existing shadcn/ui components first.
+2. Before creating a custom component, search the configured shadcn registries:
+   - @8starlabs-ui
+   - @23rd
+   - @1st-pouf
+   - @23rd
+3. Prefer existing registry components when they match the requested design.
+4. Install registry components using the shadcn CLI.
+5. Reuse and customize installed components instead of duplicating them.
+6. Preserve the existing project's design tokens, spacing, typography and colors.
+7. Do not introduce another UI library unless explicitly requested.
+8. If several registry components could work, choose the one that best matches the existing design rather than blindly combining styles.

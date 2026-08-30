@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#090909" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="same-origin" />
+    <title>Вход — Garbona Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/login.css?v=20260816" />
+    <link rel="icon" href="/assets/logo-mark.png?v=gb4" type="image/png" />
+  </head>
+  <body class="login-body">
+    <div class="login-page">
+      <div class="login-atmosphere" aria-hidden="true">
+        <span class="login-glow login-glow-a"></span>
+        <span class="login-glow login-glow-b"></span>
+        <span class="login-grid"></span>
+      </div>
+
+      <main class="login-stage">
+        <div class="login-hero">
+          <div class="login-mark">
+            <img src="/assets/logo-mark.png?v=gb4" alt="" width="56" height="56" />
+          </div>
+          <h1 class="login-brand" id="loginTitle">Garbona</h1>
+          <p class="login-kicker">панель управления</p>
+          <p class="login-lead">
+            Закрытый доступ для администраторов. Вход только по выданным учётным данным.
+          </p>
+
+          <div class="login-panel">
+            <div id="loginError" class="login-error" role="alert" aria-live="polite">
+              <span id="loginErrorText">Не удалось войти</span>
+            </div>
+
+            <form class="login-form" id="loginForm" autocomplete="on" novalidate>
+              <label class="login-field" for="loginUsername">
+                <span class="login-label">Логин</span>
+                <input
+                  class="login-input"
+                  type="text"
+                  name="username"
+                  id="loginUsername"
+                  autocomplete="username"
+                  inputmode="text"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                  required
+                  minlength="3"
+                  maxlength="32"
+                  placeholder="username"
+                />
+              </label>
+
+              <label class="login-field" for="loginPassword">
+                <span class="login-label">Пароль</span>
+                <span class="login-input-wrap">
+                  <input
+                    class="login-input"
+                    type="password"
+                    name="password"
+                    id="loginPassword"
+                    autocomplete="current-password"
+                    required
+                    minlength="8"
+                    maxlength="128"
+                    placeholder="••••••••"
+                  />
+                  <button
+                    type="button"
+                    class="login-eye"
+                    id="togglePassword"
+                    aria-label="Показать пароль"
+                    aria-pressed="false"
+                  >
+                    <svg class="login-eye-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+                      <path
+                        d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                      />
+                      <circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6" />
+                    </svg>
+                  </button>
+                </span>
+              </label>
+
+              <button type="submit" class="login-submit" id="loginSubmit">
+                <span class="login-submit-label">Войти</span>
+                <span class="login-submit-wait" hidden>Проверяем…</span>
+              </button>
+            </form>
+          </div>
+
+          <p class="login-footnote">
+            Не передавайте логин и пароль третьим лицам. Сессия защищена и истекает автоматически.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/api.js?v=payout-panel1"></script>
+    <script src="js/auth.js?v=payout-panel1"></script>
+    <script src="js/login.js?v=payout-panel1"></script>
+  </body>
+</html>

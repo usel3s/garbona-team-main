@@ -1,0 +1,42 @@
+.gbe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: min(52vh, 420px);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.gbe__code {
+  margin: 0;
+  color: color-mix(in srgb, var(--text, #ededed) 12%, transparent);
+  font-size: clamp(72px, 14vw, 128px);
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 0.85;
+}
+
+.gbe__title {
+  margin: 12px 0 0;
+  color: var(--text, #ededed);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.gbe__desc {
+  max-width: 36rem;
+  margin: 10px 0 0;
+  color: var(--muted, #888);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.gbe__action {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 24px;
+}

@@ -1,0 +1,88 @@
+/* These names are the contract consumed by /shared/sidebar.css — renaming one
+   silently changes the shared sidebar layer. */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --surface-2: #161616;
+  --surface-3: #1c1c1c;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-soft: rgba(255, 255, 255, 0.055);
+  --text: #ededed;
+  --muted: #888888;
+  --faint: #5a5a5a;
+  --green: #00c48c;
+  --green-dim: #00a876;
+  --blue: #3b9eff;
+  --danger: #ff5c5c;
+  --warn: #e8b86d;
+  --success: #00c48c;
+  --topnav-bg: #0a0a0a;
+  --chart-grid: rgba(255, 255, 255, 0.06);
+  --chart-tooltip-bg: #111111;
+  --chart-tooltip-border: rgba(255, 255, 255, 0.1);
+  --chart-tooltip-text: #e8e8e8;
+  --login-gradient-1: rgba(0, 196, 140, 0.12);
+  --login-gradient-2: rgba(34, 158, 217, 0.08);
+  --radius: 6px;
+  --radius-lg: 8px;
+  --sidebar-w: 260px;
+  --sidebar-collapsed-w: 68px;
+  --sidebar-current-w: var(--sidebar-w);
+  --accent: var(--green);
+  --accent-soft: rgba(0, 196, 140, 0.12);
+  --page-gutter: clamp(16px, 3.2vw, 48px);
+  --content-max: 1280px;
+  --font: "Geist", system-ui, -apple-system, sans-serif;
+  --mono: "Geist Mono", ui-monospace, monospace;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-fast: 120ms;
+  --duration: 180ms;
+  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.55);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #ffffff;
+  --surface-3: #f4f4f4;
+  --line: rgba(0, 0, 0, 0.08);
+  --line-soft: rgba(0, 0, 0, 0.05);
+  --text: #111111;
+  --muted: #666666;
+  --faint: #999999;
+  --green: #00a876;
+  --green-dim: #008f66;
+  --blue: #2470c4;
+  --danger: #e04545;
+  --warn: #b8860b;
+  --success: #00a876;
+  --topnav-bg: #ffffff;
+  --chart-grid: rgba(0, 0, 0, 0.06);
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: rgba(0, 0, 0, 0.1);
+  --chart-tooltip-text: #111111;
+  --login-gradient-1: rgba(0, 168, 118, 0.1);
+  --login-gradient-2: rgba(34, 158, 217, 0.08);
+  --accent: var(--green);
+  --accent-soft: rgba(0, 168, 118, 0.12);
+  --shadow-elevated: 0 16px 40px rgba(0, 0, 0, 0.1);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+html[data-sidebar="collapsed"] {
+  --sidebar-current-w: var(--sidebar-collapsed-w);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  [data-theme="dark"],
+  [data-theme="light"] {
+    --duration-fast: 1ms;
+    --duration: 1ms;
+  }
+}

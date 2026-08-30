@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garbona — Inventory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/extras.css" />
+    <link rel="icon" href="assets/logo.png?v=gb3" type="image/png" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png?v=gb3" alt="Garbona" />
+          <span>Garbona</span>
+        </a>
+        <nav class="nav">
+          <a class="active" href="inventory.html">Inventory</a>
+          <a href="index.html">Upgrades</a>
+          <a href="rewards.html">Rewards</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn btn-steam" id="loginBtn" type="button">
+            <img src="assets/steam.svg" alt="" />
+            Sign in via Steam
+          </button>
+          <div class="user-chip" id="userChip">
+            <img id="userAvatar" src="assets/logo.png?v=gb3" alt="" />
+            <span id="userNick">Player</span>
+            <button id="logoutBtn" type="button">Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="inventory-page">
+        <section class="inventory-gate" id="invGate">
+          <div class="inventory-gate-inner">
+            <h1>SIGN IN TO ACCESS YOUR INVENTORY</h1>
+            <button class="btn btn-steam-outline" type="button" id="invSignIn">
+              <img src="assets/steam.svg" alt="" />
+              SIGN IN VIA STEAM
+            </button>
+          </div>
+        </section>
+
+        <section class="page-stub" id="invContent" hidden>
+          <div class="glass" style="padding: 24px">
+            <h1 style="margin-top: 0">Inventory</h1>
+            <div class="inventory-grid" id="invGrid"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="index.html">
+              <img src="assets/logo.png?v=gb3" alt="" width="28" height="28" />
+              <span>Garbona</span>
+            </a>
+            <p>Not affiliated with Valve Corp.</p>
+          </div>
+          <div>
+            <h4>Navigation</h4>
+            <a href="inventory.html">Inventory</a>
+            <a href="index.html">Upgrades</a>
+            <a href="rewards.html">Rewards</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="rules.html">Rules</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+          <div class="footer-stats">
+            <div class="stat"><span>Online</span><strong data-online>2 104</strong></div>
+            <div class="stat"><span>Total players</span><strong data-players>312 450</strong></div>
+            <div class="stat"><span>Upgrades made</span><strong data-upgrades>8 421 190</strong></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+      function renderInv() {
+        const gate = document.getElementById("invGate");
+        const content = document.getElementById("invContent");
+        const grid = document.getElementById("invGrid");
+        if (!GarbonaAuth.isLoggedIn()) {
+          gate.hidden = false;
+          content.hidden = true;
+          return;
+        }
+        gate.hidden = true;
+        content.hidden = false;
+        grid.innerHTML = "";
+        GarbonaData.inventoryPool.forEach((skin) => {
+          const el = document.createElement("div");
+          el.className = "skin-card";
+          el.style.setProperty("--rarity", skin.color);
+          el.innerHTML = `
+            <div class="skin-art" style="--rarity:${skin.color}">
+              <img src="${skin.image}" alt="${skin.label}" loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('no-img')" />
+              <span class="wear-badge">${skin.wear}</span>
+            </div>
+            <div class="card-price">${skin.price.toFixed(2)} <small>T</small></div>
+            <div class="name">${skin.weapon}</div>
+            <div class="sub">${skin.skin}</div>
+          `;
+          grid.appendChild(el);
+        });
+      }
+
+      GarbonaUI.initChrome();
+      document.getElementById("invSignIn")?.addEventListener("click", () => {
+        GarbonaUI.openAuthModal();
+      });
+      renderInv();
+      window.addEventListener("garbona:auth", renderInv);
+    </script>
+  </body>
+</html>

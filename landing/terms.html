@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garbona — Terms of Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/extras.css" />
+    <link rel="icon" href="assets/logo.png?v=gb3" type="image/png" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png?v=gb3" alt="Garbona" />
+          <span>Garbona</span>
+        </a>
+        <nav class="nav">
+          <a href="inventory.html">Inventory</a>
+          <a href="index.html">Upgrades</a>
+          <a href="rewards.html">Rewards</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn btn-steam" id="loginBtn" type="button">
+            <img src="assets/steam.svg" alt="" />
+            Sign in via Steam
+          </button>
+          <div class="user-chip" id="userChip">
+            <img id="userAvatar" src="assets/logo.png?v=gb3" alt="" />
+            <span id="userNick">Player</span>
+            <button id="logoutBtn" type="button">Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="legal-page">
+        <article class="glass">
+          <h1>Terms of Service</h1>
+          <p class="legal-meta">Last updated: July 31, 2026</p>
+
+          <h2>1. Acceptance of terms</h2>
+          <p>
+            By accessing or using Garbona (“the Service”), you agree to these Terms of Service and our
+            Privacy Policy. If you do not agree, do not use the Service.
+          </p>
+
+          <h2>2. Eligibility</h2>
+          <p>
+            You must be at least 18 years old and legally allowed to use online entertainment
+            services in your jurisdiction. You confirm that all information you provide is accurate.
+          </p>
+
+          <h2>3. Account and Steam sign-in</h2>
+          <p>
+            Access may require signing in via Steam. You are responsible for activity under your
+            account. We may suspend or terminate access for abuse, fraud, or violations of these terms.
+          </p>
+
+          <h2>4. Virtual items and balance</h2>
+          <p>
+            Skins, balances, bonuses, and giveaway entries shown on the Service are virtual and may
+            have no real-world monetary value unless expressly stated. Prices marked with “T” are
+            in-service units.
+          </p>
+
+          <h2>5. Upgrades, rewards, and giveaways</h2>
+          <ul>
+            <li>Upgrade outcomes are probabilistic and may result in loss of the stake.</li>
+            <li>Giveaways may require a minimum deposit and other conditions published on the Rewards page.</li>
+            <li>Bonuses and weekly drops may be limited, time-bound, or revoked for abuse.</li>
+          </ul>
+
+          <h2>6. Prohibited conduct</h2>
+          <ul>
+            <li>Cheating, bots, multi-accounting, or exploiting bugs</li>
+            <li>Fraudulent payments or chargebacks</li>
+            <li>Harassment, illegal content, or attempts to disrupt the Service</li>
+          </ul>
+
+          <h2>7. Intellectual property</h2>
+          <p>
+            Garbona branding and site materials belong to their owners. Counter-Strike and related
+            marks belong to Valve Corp. The Service is not affiliated with or endorsed by Valve.
+          </p>
+
+          <h2>8. Disclaimer</h2>
+          <p>
+            The Service is provided “as is” without warranties of any kind. To the maximum extent
+            permitted by law, Garbona is not liable for indirect, incidental, or consequential damages.
+          </p>
+
+          <h2>9. Changes</h2>
+          <p>
+            We may update these terms at any time. Continued use after changes means you accept the
+            revised terms. Material changes may be highlighted on the site.
+          </p>
+
+          <h2>10. Contact</h2>
+          <p>Questions: <a href="mailto:support@garbona.local">support@garbona.local</a></p>
+        </article>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="index.html">
+              <img src="assets/logo.png?v=gb3" alt="" width="28" height="28" />
+              <span>Garbona</span>
+            </a>
+            <p>Not affiliated with Valve Corp.</p>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="rules.html">Rules</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+      GarbonaUI.initChrome();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090b0a" />
+    <link rel="icon" href="./logo.png?v=gb3" type="image/png" />
+    <meta
+      name="description"
+      content="Документация Garbona: начало работы, мануалы, воркер-панель, сайты, ссылки, аналитика и выплаты."
+    />
+    <link rel="canonical" href="https://docs.garbona.cc/docs/" />
+    <title>Документация — Garbona</title>
+    <link rel="stylesheet" href="./styles.css?v=2026081618" />
+  </head>
+  <body>
+    <a class="skip-link" href="#article">Перейти к содержанию</a>
+
+    <div class="docs-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            class="icon-button menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Открыть навигацию"
+            aria-controls="sidebar"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+          <a class="brand" href="#overview" aria-label="Garbona Docs — главная">
+            <span class="brand-mark" aria-hidden="true">
+              <img src="./logo.png?v=gb3" alt="" width="30" height="30" />
+            </span>
+            <span>Garbona</span>
+            <span class="brand-divider"></span>
+            <span class="brand-docs">Docs</span>
+          </a>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="search-trigger" id="searchTrigger" type="button" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5"></circle>
+              <path d="m16 16 4 4"></path>
+            </svg>
+            <span>Поиск по документации</span>
+            <kbd>Ctrl K</kbd>
+          </button>
+          <a class="panel-link" href="https://garbona.cc/app/">
+            <span>Открыть панель</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 18 15 12 9 6"></path>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <div class="mobile-backdrop" id="mobileBackdrop" hidden></div>
+
+      <aside class="sidebar" id="sidebar" aria-label="Разделы документации">
+        <div class="sidebar-mobile-head">
+          <span>Документация</span>
+          <button class="icon-button" id="closeMenuButton" type="button" aria-label="Закрыть навигацию">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+        <nav class="docs-nav" id="docsNav"></nav>
+        <div class="sidebar-footer">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Документация Garbona</span>
+          <span class="version">v1.0</span>
+        </div>
+      </aside>
+
+      <main class="content" id="mainContent">
+        <article class="article" id="article" tabindex="-1" aria-live="polite"></article>
+      </main>
+
+      <aside class="page-toc" aria-label="На этой странице">
+        <div class="toc-label">На этой странице</div>
+        <nav id="pageToc"></nav>
+        <button class="copy-page-link" id="copyPageLink" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.2"></path>
+            <path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.2-1.2"></path>
+          </svg>
+          <span>Скопировать ссылку</span>
+        </button>
+      </aside>
+    </div>
+
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle" hidden>
+      <div class="search-backdrop" data-close-search></div>
+      <div class="search-panel">
+        <h2 class="sr-only" id="searchTitle">Поиск по документации</h2>
+        <div class="search-field">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Найти раздел или ответ…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="searchResults"
+          />
+          <kbd>Esc</kbd>
+        </div>
+        <div class="search-results" id="searchResults" role="listbox"></div>
+        <div class="search-help">
+          <span><kbd>↑</kbd><kbd>↓</kbd> выбор</span>
+          <span><kbd>Enter</kbd> открыть</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <noscript>
+      <div class="noscript">Для навигации и поиска в документации необходимо включить JavaScript.</div>
+    </noscript>
+
+    <script src="./content.js?v=2026081618"></script>
+    <script src="./app.js?v=2026081618"></script>
+  </body>
+</html>

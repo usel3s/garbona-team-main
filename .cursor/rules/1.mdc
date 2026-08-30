@@ -1,0 +1,349 @@
+---
+alwaysApply: false
+---
+# Cursor Project Rules
+
+## General Principles
+
+- Always write production-ready code.
+- Prioritize readability, maintainability and performance.
+- Do not leave TODOs, placeholders or unfinished logic.
+- Prefer simple, scalable solutions over complex abstractions.
+- Before writing new code, inspect the existing project structure and follow its architecture.
+- Do not rewrite working code unless there is a clear benefit.
+- Avoid code duplication (DRY).
+- Keep functions focused on a single responsibility.
+- Use meaningful variable, function and class names.
+- Never hardcode values that should be configurable.
+
+---
+
+# Code Style
+
+- Follow the project's existing coding style.
+- Prefer modern language features.
+- Avoid deprecated APIs.
+- Split large files into logical modules.
+- Large classes should be divided into smaller components.
+- Keep files reasonably sized.
+
+---
+
+# Comments
+
+Write comments only when:
+
+- business logic is complex;
+- an algorithm is difficult to understand;
+- there is a non-obvious workaround;
+- explaining why something is done (not what it does).
+
+Do NOT comment obvious code.
+
+Bad:
+
+# Increment counter
+counter += 1
+
+Good:
+
+# Telegram limits callback answer rate.
+# Delay prevents FLOOD_WAIT errors.
+await asyncio.sleep(0.2)
+
+---
+
+# Refactoring
+
+When modifying code:
+
+- preserve existing functionality;
+- improve readability where possible;
+- remove dead code;
+- simplify nested conditions;
+- remove duplicated logic.
+
+---
+
+# Error Handling
+
+Always:
+
+- handle possible exceptions;
+- provide meaningful error messages;
+- never silently ignore errors;
+- log unexpected exceptions when appropriate.
+
+---
+
+# Telegram Bots
+
+Use aiogram v3 unless the project already uses another framework.
+
+Always:
+
+- use HTML parse mode;
+- use callback_data instead of message parsing whenever possible;
+- validate all user input;
+- separate handlers, keyboards, services and database logic.
+
+Project structure should generally follow:
+
+handlers/
+keyboards/
+middlewares/
+services/
+database/
+filters/
+states/
+utils/
+
+Business logic must never be placed inside handlers.
+
+---
+
+# Telegram Premium Emoji
+
+## REQUIRED
+
+For every Telegram bot:
+
+- ALWAYS use Premium Emoji.
+- NEVER use standard Unicode emoji in bot interfaces.
+- Premium Emoji must be used in:
+  - messages;
+  - captions;
+  - menus;
+  - reply keyboards;
+  - inline keyboards;
+  - admin panels;
+  - settings;
+  - profile pages;
+  - notifications;
+  - confirmations;
+  - errors.
+
+Wrong:
+
+⚙️ Настройки
+
+Correct:
+
+<tg-emoji emoji-id="5870982283724328568">⚙️</tg-emoji> Настройки
+
+Always use HTML parse mode.
+
+---
+
+# Premium Emoji IDs
+
+Use these IDs whenever the corresponding icon is required.
+
+| Meaning | emoji-id |
+|----------|----------|
+| ⚙️ Settings | 5870982283724328568 |
+| 👤 Profile | 5870994129244131212 |
+| 👥 Users | 5870772616305839506 |
+| 👤✅ User Verified | 5891207662678317861 |
+| 👤❌ User Blocked | 5893192487324880883 |
+| 📁 File | 5870528606328852614 |
+| 🙂 Smile | 5870764288364252592 |
+| 📊 Statistics | 5870921681735781843 |
+| 📈 Analytics | 5870930636742595124 |
+| 🏠 Home | 5873147866364514353 |
+| 🔒 Lock | 6037249452824072506 |
+| 🔓 Unlock | 6037496202990194718 |
+| 📣 Broadcast | 6039422865189638057 |
+| ✅ Success | 5870633910337015697 |
+| ❌ Error | 5870657884844462243 |
+| 🖋 Edit | 5870676941614354370 |
+| 🗑 Delete | 5870875489362513438 |
+| 📎 Attachment | 6039451237743595514 |
+| 🔗 Link | 5769289093221454192 |
+| ℹ️ Information | 6028435952299413210 |
+| 🤖 Bot | 6030400221232501136 |
+| 👁 Visible | 6037397706505195857 |
+| 👁 Hidden | 6037243349675544634 |
+| ⬆️ Upload | 5963103826075456248 |
+| ⬇️ Download | 6039802767931871481 |
+| 🔔 Notification | 6039486778597970865 |
+| 🎁 Gift | 6032644646587338669 |
+| ⏰ Time | 5983150113483134607 |
+| 🎉 Success | 6041731551845159060 |
+| 📍 Location | 6042011682497106307 |
+| 👛 Wallet | 5769126056262898415 |
+| 📦 Package | 5884479287171485878 |
+| 👾 CryptoBot | 5260752406890711732 |
+| 📅 Calendar | 5890937706803894250 |
+| 🏷 Tag | 5886285355279193209 |
+| 🪙 Coins | 5904462880941545555 |
+| 🪙 Transfer | 5890848474563352982 |
+| 🏧 Receive | 5879814368572478751 |
+| 🔨 Code | 5940433880585605708 |
+| 🔄 Loading | 5345906554510012647 |
+
+---
+
+# Inline Keyboards
+
+Never use Unicode emoji inside button text.
+
+Preferred:
+
+InlineKeyboardButton(
+    text="Настройки",
+    callback_data="settings",
+    icon_custom_emoji_id="5870982283724328568"
+)
+
+Not:
+
+InlineKeyboardButton(
+    text="⚙️ Настройки"
+)
+
+---
+
+# Reply Keyboards
+
+Always use:
+
+icon_custom_emoji_id
+
+Never use Unicode emoji inside button text.
+
+---
+
+# Discord Bots
+
+Preferred stack:
+
+- disnake
+- nextcord
+- py-cord
+
+Separate:
+
+commands/
+views/
+events/
+services/
+database/
+
+Business logic should not be inside slash commands.
+
+---
+
+# Web Development
+
+Preferred stack:
+
+Frontend
+
+- Next.js
+- React
+- TypeScript
+- TailwindCSS
+- shadcn/ui
+
+Backend
+
+- FastAPI
+- Express
+- NestJS
+
+Database
+
+- PostgreSQL
+- Redis
+- SQLite (small projects)
+
+ORM
+
+- Prisma
+- SQLAlchemy
+
+---
+
+# UI / UX
+
+Design should be:
+
+- modern;
+- minimalistic;
+- responsive;
+- accessible;
+- production-ready.
+
+Prefer:
+
+- rounded corners;
+- consistent spacing;
+- clean typography;
+- subtle animations;
+- dark mode support.
+
+Avoid outdated UI patterns.
+
+---
+
+# API
+
+When designing APIs:
+
+- use REST conventions;
+- validate input;
+- return consistent JSON;
+- provide clear error responses.
+
+---
+
+# Database
+
+Always:
+
+- use migrations;
+- avoid duplicated data;
+- create indexes where appropriate;
+- use transactions for critical operations.
+
+---
+
+# Security
+
+Never:
+
+- expose secrets;
+- hardcode API keys;
+- hardcode bot tokens;
+- trust user input.
+
+Always validate incoming data.
+
+---
+
+# Git
+
+Write concise commit messages.
+
+Example:
+
+feat: add admin broadcast
+
+fix: resolve callback parsing
+
+refactor: split user service
+
+---
+
+# Response Behaviour
+
+When generating code:
+
+- think before writing;
+- analyze the existing project;
+- preserve project architecture;
+- generate complete, working code;
+- avoid placeholders;
+- avoid pseudocode;
+- return production-ready implementations.

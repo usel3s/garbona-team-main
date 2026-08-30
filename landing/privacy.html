@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garbona — Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/extras.css" />
+    <link rel="icon" href="assets/logo.png?v=gb3" type="image/png" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png?v=gb3" alt="Garbona" />
+          <span>Garbona</span>
+        </a>
+        <nav class="nav">
+          <a href="inventory.html">Inventory</a>
+          <a href="index.html">Upgrades</a>
+          <a href="rewards.html">Rewards</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn btn-steam" id="loginBtn" type="button">
+            <img src="assets/steam.svg" alt="" />
+            Sign in via Steam
+          </button>
+          <div class="user-chip" id="userChip">
+            <img id="userAvatar" src="assets/logo.png?v=gb3" alt="" />
+            <span id="userNick">Player</span>
+            <button id="logoutBtn" type="button">Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="legal-page">
+        <article class="glass">
+          <h1>Privacy Policy</h1>
+          <p class="legal-meta">Last updated: July 31, 2026</p>
+
+          <h2>1. What we collect</h2>
+          <ul>
+            <li>Account identifiers from Steam sign-in (nickname, avatar, Steam ID when available)</li>
+            <li>Usage data: pages visited, upgrades, giveaway participation, device/browser type</li>
+            <li>Technical logs needed for security and abuse prevention</li>
+          </ul>
+
+          <h2>2. How we use data</h2>
+          <ul>
+            <li>Provide and improve upgrades, inventory, rewards, and support</li>
+            <li>Prevent fraud, enforce rules, and keep the Service secure</li>
+            <li>Communicate service notices when required</li>
+          </ul>
+
+          <h2>3. Storage</h2>
+          <p>
+            Session data may be stored locally in your browser (for example localStorage) and on our
+            servers when a backend is connected. We retain data only as long as needed for the
+            purposes above or as required by law.
+          </p>
+
+          <h2>4. Sharing</h2>
+          <p>
+            We do not sell personal data. We may share limited information with processors that help
+            run the Service (hosting, analytics, anti-fraud), or when required by law.
+          </p>
+
+          <h2>5. Cookies &amp; local storage</h2>
+          <p>
+            We use essential cookies/local storage for sign-in state and preferences. You can clear
+            them in your browser; some features may stop working until you sign in again.
+          </p>
+
+          <h2>6. Your rights</h2>
+          <p>
+            Depending on your region, you may request access, correction, or deletion of personal
+            data. Contact <a href="mailto:support@garbona.local">support@garbona.local</a>.
+          </p>
+
+          <h2>7. Children</h2>
+          <p>The Service is for users 18+. We do not knowingly collect data from minors.</p>
+
+          <h2>8. Changes</h2>
+          <p>
+            We may update this policy. The “Last updated” date will change when we do. Continued use
+            means you accept the updated policy.
+          </p>
+        </article>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="index.html">
+              <img src="assets/logo.png?v=gb3" alt="" width="28" height="28" />
+              <span>Garbona</span>
+            </a>
+            <p>Not affiliated with Valve Corp.</p>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="rules.html">Rules</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+      GarbonaUI.initChrome();
+    </script>
+  </body>
+</html>

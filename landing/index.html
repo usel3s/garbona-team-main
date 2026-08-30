@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garbona — CS2 Upgrades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/extras.css" />
+    <link rel="icon" href="assets/logo.png?v=gb3" type="image/png" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png?v=gb3" alt="Garbona" />
+          <span>Garbona</span>
+        </a>
+        <nav class="nav">
+          <a href="inventory.html">Inventory</a>
+          <a class="active" href="index.html">Upgrades</a>
+          <a href="rewards.html">Rewards</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn btn-steam" id="loginBtn" type="button">
+            <img src="assets/steam.svg" alt="" />
+            Sign in via Steam
+          </button>
+          <div class="user-chip" id="userChip">
+            <img id="userAvatar" src="assets/logo.png?v=gb3" alt="" />
+            <span id="userNick">Player</span>
+            <button id="logoutBtn" type="button">Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="feed-panel">
+          <div class="feed-head">
+            <div class="online">
+              <span class="dot"></span>
+              <span><span data-online>0</span> Online</span>
+            </div>
+            <div class="feed-tabs">
+              <button type="button" class="active" data-filter="all" title="All">
+                <img src="assets/icon-grid.svg" alt="All" />
+              </button>
+              <button type="button" data-filter="hot" title="Hot">
+                <img src="assets/icon-hot.svg" alt="Hot" />
+              </button>
+            </div>
+          </div>
+          <div class="feed-list" id="feedList"></div>
+        </aside>
+
+        <main class="main-stage">
+          <section class="upgrade-row">
+            <div class="glass slot">
+              <div class="tools" style="margin-bottom: 8px">
+                <button type="button" id="turboBtn" title="Turbo mode">
+                  <img src="assets/icon-turbo.svg" alt="Turbo" />
+                </button>
+                <button type="button" id="soundBtn" title="Sound">
+                  <img src="assets/icon-sound.svg" alt="Sound" />
+                </button>
+              </div>
+              <h3>Select items and/or balance to use</h3>
+              <div class="slot-body" id="stakeSlot">Selected items will appear here</div>
+            </div>
+
+            <div class="wheel-wrap">
+              <div class="wheel" id="upgradeWheel" style="--chance: 0%">
+                <div class="wheel-pointer"></div>
+                <div class="wheel-inner">
+                  <strong id="chanceValue">0%</strong>
+                  <span>chance</span>
+                </div>
+              </div>
+              <button class="btn btn-primary" id="upgradeBtn" type="button" disabled>Upgrade</button>
+            </div>
+
+            <div class="glass slot">
+              <h3>Select an item to upgrade into</h3>
+              <div class="slot-body" id="targetSlot">Pick an item from the list below</div>
+            </div>
+          </section>
+
+          <section class="bottom-row">
+            <div class="glass panel-block">
+              <h3>My items</h3>
+              <div id="myItems"></div>
+            </div>
+            <div class="glass panel-block">
+              <h3>Choose an item</h3>
+              <div class="catalog-tools">
+                <input id="priceFrom" type="number" min="0" step="0.01" placeholder="From" />
+                <input id="priceTo" type="number" min="0" step="0.01" placeholder="To" />
+              </div>
+              <div class="catalog-grid" id="catalogGrid"></div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="index.html">
+              <img src="assets/logo.png?v=gb3" alt="" width="28" height="28" />
+              <span>Garbona</span>
+            </a>
+            <p>CS2 upgrades in team style. No real payments on this site.</p>
+            <p>Not affiliated with Valve Corp.</p>
+          </div>
+          <div>
+            <h4>Navigation</h4>
+            <a href="inventory.html">Inventory</a>
+            <a href="index.html">Upgrades</a>
+            <a href="rewards.html">Rewards</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="rules.html">Rules</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+          <div class="footer-stats">
+            <div class="stat"><span>Online</span><strong data-online>0</strong></div>
+            <div class="stat"><span>Total players</span><strong data-players>0</strong></div>
+            <div class="stat"><span>Upgrades made</span><strong data-upgrades>0</strong></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/feed.js"></script>
+    <script src="js/upgrade.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+      GarbonaUI.initChrome({ withFeed: true, withUpgrade: true });
+    </script>
+  </body>
+</html>

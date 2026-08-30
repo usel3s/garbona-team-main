@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#090909" />
+    <title>Discord - Garbona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <base href="/app/" />
+    <link rel="stylesheet" href="css/worker.css" />
+    <link rel="icon" href="/app/assets/logo-mark.png?v=gb4" type="image/png" />
+  </head>
+  <body class="login-body">
+    <div class="login-page dsc-page">
+      <div class="login-atmosphere" aria-hidden="true">
+        <span class="login-glow login-glow-a"></span>
+        <span class="login-glow login-glow-b"></span>
+        <span class="login-grid"></span>
+      </div>
+
+      <header class="login-topbar">
+        <div class="login-controls">
+          <button type="button" class="pref-btn" id="langBtn" aria-label="Language">RU</button>
+          <button type="button" class="pref-btn" id="themeBtn" aria-label="Theme">☾</button>
+        </div>
+      </header>
+
+      <main class="login-stage">
+        <div class="login-hero dsc-hero">
+          <div class="login-mark">
+            <img src="/app/assets/logo-mark.png?v=gb4" alt="" width="56" height="56" />
+          </div>
+          <p class="login-kicker" data-i18n="discord.kicker">верификация discord</p>
+          <h1 class="login-brand" data-i18n="discord.title">Подтверждение</h1>
+          <p class="login-subtitle" id="dscSubtitle" data-i18n="discord.subtitle">
+            Свяжи Discord с аккаунтом Garbona, чтобы открыть сервер.
+          </p>
+
+          <div id="dscError" class="login-error" role="alert">
+            <span id="dscErrorText"></span>
+          </div>
+
+          <section id="dscLoading" class="dsc-state is-visible">
+            <div class="dsc-spinner" aria-hidden="true"></div>
+            <p class="dsc-state-text" data-i18n="common.loading">Загрузка…</p>
+          </section>
+
+          <section id="dscLogin" class="dsc-state">
+            <div class="dsc-id-card dsc-id-card-solo" id="dscLoginCard">
+              <img id="dscLoginAvatar" alt="" width="48" height="48" />
+              <div>
+                <div class="dsc-id-label">Discord</div>
+                <div class="dsc-id-name" id="dscLoginName"></div>
+                <div class="dsc-id-meta" id="dscLoginUser"></div>
+              </div>
+            </div>
+            <p class="dsc-state-text" data-i18n="discord.loginText">
+              Войди в панель, чтобы подтвердить, что это ты.
+            </p>
+            <a class="btn-telegram dsc-login-btn" id="dscLoginBtn" href="/app/login">
+              <span data-i18n="discord.loginBtn">Войти и подтвердить</span>
+            </a>
+          </section>
+
+          <section id="dscConfirm" class="dsc-state">
+            <div class="dsc-identities">
+              <article class="dsc-id-card">
+                <img id="dscDiscordAvatar" alt="" width="48" height="48" />
+                <div>
+                  <div class="dsc-id-label">Discord</div>
+                  <div class="dsc-id-name" id="dscDiscordName"></div>
+                  <div class="dsc-id-meta" id="dscDiscordUser"></div>
+                </div>
+              </article>
+              <div class="dsc-swap" aria-hidden="true">⟷</div>
+              <article class="dsc-id-card">
+                <img id="dscGarbonaAvatar" alt="" width="48" height="48" />
+                <div>
+                  <div class="dsc-id-label" data-i18n="discord.garbonaLabel">Garbona</div>
+                  <div class="dsc-id-name" id="dscGarbonaName"></div>
+                  <div class="dsc-id-meta" id="dscGarbonaUser"></div>
+                </div>
+              </article>
+            </div>
+            <button type="button" class="dsc-confirm-btn" id="dscConfirmBtn">
+              <span data-i18n="discord.confirm">Подтвердить</span>
+            </button>
+            <p class="login-footnote" id="dscExpires" data-i18n="discord.footnote">
+              Ссылка одноразовая. После подтверждения роль выдаётся автоматически.
+            </p>
+          </section>
+
+          <section id="dscSuccess" class="dsc-state">
+            <div class="dsc-success-mark" aria-hidden="true">✓</div>
+            <h2 class="dsc-success-title" data-i18n="discord.successTitle">Готово</h2>
+            <p class="dsc-state-text" data-i18n="discord.successText">
+              Discord связан с аккаунтом. Можешь вернуться на сервер — роль уже выдана.
+            </p>
+            <a class="dsc-home-btn" href="/app/#dashboard" data-i18n="discord.home">В панель</a>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/prefs.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/discord.js?v=gb4"></script>
+  </body>
+</html>

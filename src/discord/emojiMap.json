@@ -1,0 +1,110 @@
+{
+  "accept": {
+    "id": "1541883642740211752",
+    "name": "accept"
+  },
+  "ban": {
+    "id": "1541883644149370980",
+    "name": "ban"
+  },
+  "bin": {
+    "id": "1541883645520908418",
+    "name": "bin"
+  },
+  "close": {
+    "id": "1541883646816948346",
+    "name": "close"
+  },
+  "delete": {
+    "id": "1541883648075374643",
+    "name": "delete"
+  },
+  "dover": {
+    "id": "1541883649434329149",
+    "name": "dover"
+  },
+  "invite": {
+    "id": "1541883651187286171",
+    "name": "invite"
+  },
+  "kick": {
+    "id": "1541883653175513098",
+    "name": "kick"
+  },
+  "left": {
+    "id": "1541883656094752879",
+    "name": "left"
+  },
+  "leftdubl": {
+    "id": "1541883657424343040",
+    "name": "leftdubl"
+  },
+  "limit": {
+    "id": "1541883658695090306",
+    "name": "limit"
+  },
+  "minus": {
+    "id": "1541883659664236615",
+    "name": "minus"
+  },
+  "name": {
+    "id": "1541883661627162754",
+    "name": "name"
+  },
+  "nedover": {
+    "id": "1541883663443038298",
+    "name": "nedover"
+  },
+  "nope": {
+    "id": "1541883665234133083",
+    "name": "nope"
+  },
+  "open": {
+    "id": "1541883666614190120",
+    "name": "open"
+  },
+  "plus": {
+    "id": "1541883667838804032",
+    "name": "plus"
+  },
+  "private": {
+    "id": "1541883669382307903",
+    "name": "private"
+  },
+  "right": {
+    "id": "1541883670669824061",
+    "name": "right"
+  },
+  "rightdubl": {
+    "id": "1541883671576051795",
+    "name": "rightdubl"
+  },
+  "status_blue": {
+    "id": "1541897959350993006",
+    "name": "status_blue"
+  },
+  "status_green": {
+    "id": "1541897960630124546",
+    "name": "status_green"
+  },
+  "status_idle": {
+    "id": "1541887647658672259",
+    "name": "status_idle"
+  },
+  "status_offline": {
+    "id": "1541887648820367431",
+    "name": "status_offline"
+  },
+  "status_online": {
+    "id": "1541887649940504757",
+    "name": "status_online"
+  },
+  "status_red": {
+    "id": "1541897969954070668",
+    "name": "status_red"
+  },
+  "unbun": {
+    "id": "1541883673337401415",
+    "name": "unbun"
+  }
+}

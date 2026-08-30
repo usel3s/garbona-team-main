@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#090909" />
+    <title>Вход — Garbona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <base href="/app/" />
+    <link rel="stylesheet" href="css/worker.css" />
+    <link rel="icon" href="/app/assets/logo-mark.png?v=gb4" type="image/png" />
+  </head>
+  <body class="login-body">
+    <div class="login-page">
+      <div class="login-atmosphere" aria-hidden="true">
+        <span class="login-glow login-glow-a"></span><span class="login-glow login-glow-b"></span><span class="login-grid"></span>
+      </div>
+      <header class="login-topbar">
+        <a class="login-logo" href="/app/" aria-label="Garbona"><img src="/app/assets/logo-mark.png?v=gb4" alt="" width="28" height="28" /><span>Garbona</span></a>
+        <div class="login-controls">
+          <label class="login-language"><span class="sr-only" data-i18n="login.language">Язык</span><select id="langSelect" aria-label="Язык" data-i18n-aria-label="login.language"><option value="ru">Русский</option><option value="en">English</option></select></label>
+          <button type="button" class="pref-btn" id="themeBtn" aria-label="Тема" data-i18n-aria-label="login.theme">☾</button>
+        </div>
+      </header>
+      <main class="login-stage">
+        <section class="login-card" aria-labelledby="loginTitle">
+          <div class="login-card-head">
+            <div class="login-mark"><img src="/app/assets/logo-mark.png?v=gb4" alt="" width="36" height="36" /></div>
+            <p class="login-eyebrow" data-i18n="login.eyebrow">Панель команды</p>
+            <h1 class="login-title" id="loginTitle" data-i18n="login.heading">С возвращением</h1>
+            <p class="login-subtitle" data-i18n="login.subtitle">Введите логин и пароль или продолжите через Telegram.</p>
+          </div>
+          <div id="loginError" class="login-error" role="alert" aria-live="polite"><span id="loginErrorText" data-i18n="login.errorDefault">Не удалось войти</span></div>
+          <form class="login-form" id="passwordForm" novalidate>
+            <div class="login-fields">
+              <label class="login-field" for="loginInput"><span data-i18n="login.loginLabel">Логин</span><input id="loginInput" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" data-i18n-placeholder="login.loginPlaceholder" placeholder="username или Telegram ID" required /></label>
+              <label class="login-field" for="passwordInput"><span data-i18n="login.passwordLabel">Пароль</span><span class="login-password-control"><input id="passwordInput" name="password" type="password" autocomplete="current-password" data-i18n-placeholder="login.passwordPlaceholder" placeholder="Введите пароль" required /><button type="button" class="login-password-toggle" id="passwordToggle" aria-label="Показать пароль" data-i18n-aria-label="login.showPassword"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.4 12s3.5-6 9.6-6 9.6 6 9.6 6-3.5 6-9.6 6-9.6-6-9.6-6Z" /><circle cx="12" cy="12" r="2.5" /></svg></button></span></label>
+            </div>
+            <label class="login-consent"><input id="consentInput" type="checkbox" required /><span class="login-checkbox" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3 3 7-7" /></svg></span><span><span data-i18n="login.consentPrefix">Я принимаю</span> <a href="/docs/#manuals-project-rules" target="_blank" rel="noopener noreferrer" data-i18n="login.rulesLink">правила команды</a> <span data-i18n="login.consentSuffix">и подтверждаю, что использую личный аккаунт.</span></span></label>
+            <button type="submit" class="login-submit" id="passwordSubmit"><span data-i18n="login.continue">Продолжить</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg></button>
+          </form>
+          <form class="login-form login-two-factor" id="twoFactorForm" hidden novalidate>
+            <button class="login-back" id="twoFactorBack" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12 4-6 6 6 6" /></svg><span data-i18n="login.back">Назад</span></button>
+            <div class="login-two-factor-copy"><span class="login-security-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.8 2.9 8.2 7 10 4.1-1.8 7-5.2 7-10V6l-7-3Z" /><path d="m9 12 2 2 4-4" /></svg></span><h2 data-i18n="login.twoFactorTitle">Двухфакторная проверка</h2><p data-i18n="login.twoFactorText">Введите код из приложения или одноразовый recovery-код.</p></div>
+            <label class="login-field" for="twoFactorInput"><span data-i18n="login.twoFactorLabel">Код подтверждения</span><input class="login-code-input" id="twoFactorInput" name="one-time-code" type="text" autocomplete="one-time-code" maxlength="14" placeholder="000000 или XXXX-XXXX-XXXX" required /></label>
+            <button type="submit" class="login-submit" id="twoFactorSubmit"><span data-i18n="login.verify">Подтвердить вход</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg></button>
+          </form>
+          <div class="login-alternative" id="loginAlternative">
+            <div class="login-divider"><span data-i18n="login.or">или</span></div>
+            <button type="button" class="btn-telegram" id="tgAuthBtn" hidden><svg class="btn-telegram-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21.5 4.3 3.8 11.1c-1.2.5-1.2 1.1-.2 1.4l4.5 1.4 1.7 5.3c.2.6.1.8.8.8.5 0 .7-.2 1-.5l2.5-2.4 5.2 3.8c1 .5 1.6.2 1.9-.9L22.9 5.6c.3-1.3-.5-1.9-1.4-1.3Zm-3.1 3.1-8.4 7.5-.3 3.4-1.6-5.3 10.3-5.6Z" /></svg><span data-i18n="login.telegram">Войти через Telegram</span></button>
+          </div>
+          <p class="login-footnote"><span data-i18n="login.help">Проблемы со входом?</span> <a href="/docs/" target="_blank" rel="noopener noreferrer" data-i18n="login.openDocs">Открыть документацию</a></p>
+        </section>
+      </main>
+    </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script><script src="js/prefs.js"></script><script src="js/i18n.js"></script><script src="js/login.js"></script>
+  </body>
+</html>
