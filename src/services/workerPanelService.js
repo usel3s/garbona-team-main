@@ -40,11 +40,34 @@ function classifyStatus(row) {
   return classifyWorkerAccountStatus(row);
 }
 
+function isOnSaleLabel(status) {
+  return /прода[её]тся|on\s*sell|onsell|на\s*продаж/i.test(String(status || ""));
+}
+
+/**
+ * Live UProject keeps an account tagged `OnSell` even after its LZT lot was
+ * sold / refunded / deleted (UProject never learns the lot died). When our own
+ * tracked lifecycle (SteamLog) says the account is no longer sellable, trust it
+ * over the stale live tag — but only to correct a live "on sale" status.
+ */
+function reconcileStoredStatus(liveStatus, dbDoc) {
+  if (!dbDoc || !isOnSaleLabel(liveStatus)) return liveStatus;
+  const auto = String(dbDoc.autoSaleStatus || "").toLowerCase();
+  if (auto === "failed") return "Невалид";
+  if (auto === "refunded") return "Продажа отменена";
+  if (auto === "released") return "Продан";
+  if (auto === "sold_held" || auto === "arbitration") return "На холде";
+  if (/^(invalid|невалид)$/i.test(String(dbDoc.accountStatus || "").trim())) {
+    return "Невалид";
+  }
+  return liveStatus;
+}
+
 function formatSourcePage(row = {}, domainById = null) {
   return formatAccountSourcePage(row, domainById);
 }
 
-function serializeLog(row, domainById = null) {
+function serializeLog(row, domainById = null, dbDoc = null) {
   const steam = row?.steamInfo || {};
   const session = serializeWorkerMafileSession(row);
   return {
@@ -57,7 +80,7 @@ function serializeLog(row, domainById = null) {
       resolveSteamCountryCode(steam) || steam.country || steam.countryCode || "",
     lastPlayed: steam.lastPlayed || null,
     priceUsd: accountPrice(row),
-    status: classifyStatus(row),
+    status: reconcileStoredStatus(classifyStatus(row), dbDoc),
     steamId: steam.steamid || steam.steamId || "",
     gamesCount: Number(row.gamesCount ?? row.gameCount ?? row.gamesInfo?.length ?? 0),
     accountTag: String(row.customTeamTag || row.customTag || ""),
@@ -196,7 +219,23 @@ async function listWorkerLogs(user, { offset = 0, limit = 30, q = "", skipCache 
         return hay.includes(needle);
       });
     }
-    const logs = rows.map((row) => serializeLog(row, domainById));
+    const sourceIds = rows
+      .map((row) => String(row?.id || "").trim())
+      .filter((id) => /^\d+$/.test(id));
+    let dbBySourceId = new Map();
+    if (sourceIds.length) {
+      try {
+        const docs = await SteamLog.find({ sourceId: { $in: sourceIds } })
+          .select("sourceId autoSaleStatus accountStatus")
+          .lean();
+        dbBySourceId = new Map(docs.map((d) => [String(d.sourceId), d]));
+      } catch (_) {
+        /* DB join is best-effort; fall back to live status */
+      }
+    }
+    const logs = rows.map((row) =>
+      serializeLog(row, domainById, dbBySourceId.get(String(row.id)))
+    );
     const todayLogs = logs.filter((l) => isToday(l.createdAt));
     return {
       panelUsername: user.panelUsername || "",
